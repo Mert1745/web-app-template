@@ -10,14 +10,15 @@ import org.springframework.stereotype.Service;
 public class TestService {
     private final TestRepository testRepository;
 
-    private TestEntity saveData() {
+    private void saveData() {
         TestEntity testEntity = new TestEntity();
         testEntity.setFirstName("John");
         testEntity.setLastName("Doe");
-        return testRepository.save(testEntity);
+        testRepository.save(testEntity);
     }
 
     public TestEntity getData() {
-        return saveData();
+        this.saveData();
+        return testRepository.findByFirstName("John").stream().findFirst().orElseThrow();
     }
 }
