@@ -4,13 +4,13 @@ Template for backend web application using Spring Boot, Hibernate, PostgreSQL
 <h3>Prerequisites</h3>
 
 <ul>
-<li>JDK.11 or Docker</li>
+<li>JDK.17 or Docker</li>
 </ul>
 
 <h3>Technology Stack</h3>
 
 <ul>
-<li>Java 11</li>
+<li>Java 17</li>
 <li>Spring Boot 3.1</li>
 <li>Spring Web</li>
 <li>Spring Data JPA</li>
