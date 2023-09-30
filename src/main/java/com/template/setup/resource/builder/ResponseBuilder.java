@@ -1,7 +1,11 @@
 package com.template.setup.resource.builder;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class ResponseBuilder<T> {
     private int status;
@@ -28,29 +32,5 @@ public class ResponseBuilder<T> {
     public ResponseBuilder<T> message(String message) {
         this.message = message;
         return this;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 }

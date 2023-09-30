@@ -1,15 +1,19 @@
 version: '2'
 services:
-  message-server:
-    container_name: web-app-template
-    build:
-      context: web-app-template
-      dockerfile: Dockerfile
+  web-app:
+    container_name: backend
     image: web-app-template:latest
     ports:
-      - 18081:8081
-    networks:
-      - spring-cloud-network
-networks:
-  spring-cloud-network:
-    driver: bridge
+      - 8081:8081
+    depends_on:
+      - database
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/web_app_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=1234
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+  database:
+    container_name: database
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_PASSWORD: 1234
